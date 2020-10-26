@@ -12,7 +12,9 @@ pipeline {
     stage('codereview-pmd') {
       post {
         success {
+          script{
           pmd(canComputeNew: false, defaultEncoding: '', healthy: '', pattern: '**/pmd.xml', unHealthy: '')
+        }
         }
 
       }
